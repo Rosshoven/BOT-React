@@ -8,7 +8,7 @@ export default function Root() {
         <div>
           <h1>React Router Example</h1>
          
-<nav class="navbar navbar-expand-lg bg-body-">
+<nav class="navbar navbar-expand-lg bg-body-secondary">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">Navbar scroll</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
