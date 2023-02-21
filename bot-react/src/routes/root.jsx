@@ -7,7 +7,7 @@ export default function Root() {
       <>
         <div>
          
-<nav className="navbar navbar-expand-lg bg-body-secondary">
+<nav className="navbar navbar-expand-lg bg-body-secondary sticky-top">
   <div className="container-fluid">
     <a className="navbar-brand" href="/">Navbar scroll</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
