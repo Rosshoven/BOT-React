@@ -7,16 +7,17 @@ export default function Root() {
       <>
         <div>
          
-<nav className="navbar navbar-expand-lg bg-body-secondary sticky-top">
+         {/* Took out bg-body-secondary from <nav className> */}
+<nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div className="container-fluid">
-    <a className="navbar-brand" href="/">Navbarrrrrr</a>
+    <a className="navbar-brand" href="/">Navbar</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarScroll">
       <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style={{bsScrollHeight: "100px"}}>
         <li className="nav-item">
-          <Link to={'/'} className="nav-link active" aria-current="page">Hommmmme</Link>
+          <Link to={'/'} className="nav-link active" aria-current="page">Home</Link>
         </li>
         <li className="nav-item">
          <Link to={'pics'} className="nav-link active" aria-current="page">Pics</Link>
