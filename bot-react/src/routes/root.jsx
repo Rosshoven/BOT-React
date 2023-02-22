@@ -16,7 +16,7 @@ export default function Root() {
     <div className="collapse navbar-collapse" id="navbarScroll">
       <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style={{bsScrollHeight: "100px"}}>
         <li className="nav-item">
-          <Link to={'/'} className="nav-link active" aria-current="page">Home</Link>
+          <Link to={'/'} className="nav-link active" aria-current="page">Hommmmme</Link>
         </li>
         <li className="nav-item">
          <Link to={'pics'} className="nav-link active" aria-current="page">Pics</Link>
