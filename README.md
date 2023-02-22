@@ -1,10 +1,8 @@
 # BOT-React
 Boys On Trial Website made with React - React Router - Bootstrap 
-
+<hr>
 Getting Started with Create React App
 This project was bootstrapped with Create React App.
-
-<hr>
 
 Available Scripts
 In the project directory, you can run:
