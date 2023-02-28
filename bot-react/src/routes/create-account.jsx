@@ -1,148 +1,112 @@
-// export default function CreateAccount() {
-//     return (
-//         <>
-//             <h1>CREATE ACCOUNT</h1>
-//         </>
-        
-//     );
-// }
+import { useFormik } from "formik";
+import { basicSchema } from "../schemas/schema";
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Formik, Form, useField } from 'formik';
-import * as Yup from 'yup';
-
-const MyTextInput = ({ label, ...props }) => {
-  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
-  // which we can spread on <input>. We can use field meta to show an error
-  // message if the field is invalid and it has been touched (i.e. visited)
-  const [field, meta] = useField(props);
-  return (
-    <>
-      <label htmlFor={props.id || props.name}>{label}</label>
-      <input className="text-input" {...field} {...props} />
-      {meta.touched && meta.error ? (
-        <div className="error">{meta.error}</div>
-      ) : null}
-    </>
-  );
-};
-
-const MyCheckbox = ({ children, ...props }) => {
-  // React treats radios and checkbox inputs differently other input types, select, and textarea.
-  // Formik does this too! When you specify `type` to useField(), it will
-  // return the correct bag of props for you -- a `checked` prop will be included
-  // in `field` alongside `name`, `value`, `onChange`, and `onBlur`
-  const [field, meta] = useField({ ...props, type: 'checkbox' });
-  return (
-    <div>
-      <label className="checkbox-input">
-        <input type="checkbox" {...field} {...props} />
-        {children}
-      </label>
-      {meta.touched && meta.error ? (
-        <div className="error">{meta.error}</div>
-      ) : null}
-    </div>
-  );
-};
-
-const MySelect = ({ label, ...props }) => {
-  const [field, meta] = useField(props);
-  return (
-    <div>
-      <label htmlFor={props.id || props.name}>{label}</label>
-      <select {...field} {...props} />
-      {meta.touched && meta.error ? (
-        <div className="error">{meta.error}</div>
-      ) : null}
-    </div>
-  );
-};
-
-// And now we can use these
-const SignupForm = () => {
-  return (
-    <>
-      <h1>Subscribe!</h1>
-      <Formik
-        initialValues={{
-          firstName: '',
-          lastName: '',
-          email: '',
-          acceptedTerms: false, // added for our checkbox
-          jobType: '', // added for our select
-        }}
-        validationSchema={Yup.object({
-          firstName: Yup.string()
-            .max(15, 'Must be 15 characters or less')
-            .required('Required'),
-          lastName: Yup.string()
-            .max(20, 'Must be 20 characters or less')
-            .required('Required'),
-          email: Yup.string()
-            .email('Invalid email address')
-            .required('Required'),
-          acceptedTerms: Yup.boolean()
-            .required('Required')
-            .oneOf([true], 'You must accept the terms and conditions.'),
-          jobType: Yup.string()
-            .oneOf(
-              ['designer', 'development', 'product', 'other'],
-              'Invalid Job Type'
-            )
-            .required('Required'),
-        })}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
-        }}
-      >
-        <Form>
-          <MyTextInput
-            label="First Name"
-            name="firstName"
-            type="text"
-            placeholder="First Name"
-          />
-
-          <MyTextInput
-            label="Last Name"
-            name="lastName"
-            type="text"
-            placeholder="Last Name"
-          />
-
-          <MyTextInput
-            label="Email Address"
-            name="email"
-            type="email"
-            placeholder="jane@formik.com"
-          />
-
-          <MySelect label="Job Type" name="jobType">
-            <option value="">Select a job type</option>
-            <option value="designer">Designer</option>
-            <option value="development">Developer</option>
-            <option value="product">Product Manager</option>
-            <option value="other">Other</option>
-          </MySelect>
-
-          <MyCheckbox name="acceptedTerms">
-            I accept the terms and conditions
-          </MyCheckbox>
-
-          <button type="submit">Create Account</button>
-        </Form>
-      </Formik>
-    </>
-  );
-};
-
-function App() {
-    return <SignupForm />
+// onSubmit function
+async function onSubmit(values, actions) {
+    // Instead of console.log put in context push for data. ctx.users.push({name,email,password,balance:100});
+    console.log(values);
+    console.log(actions);
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    
+    // Resetting form not working...
+    alert(`Success. Your account has been created!`);
+    actions.resetForm({
+        values: {
+            // the type of `values` inferred to be Blog
+            userName: '',
+            email: '',
+            password: '',
+            confirmPassword: ''
+    },
+    });
 }
 
-export default App;
+const BasicForm = () => {
+
+  // destrucuring formik
+const { values, errors, touched, isSubmitting, handleChange, handleBlur, handleSubmit } = useFormik({
+  initialValues: {
+    userName: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  },
+  // with below the form will use the schema to validate the form
+  validationSchema: basicSchema,
+  onSubmit,
+});
+
+console.log(errors);
+  
+  return (
+    <div style={{borderSizing: 'border-box', backgroundColor: 'lightblue'}}>
+        <form onSubmit={handleSubmit} autoComplete="off">
+        
+        <div className="card" style={{width: '18rem', marginRight: 'auto', marginLeft: 'auto', marginTop: '10%', backgroundColor: 'gray'}}>
+            <h2 style={{marginRight: 'auto', marginLeft: 'auto', marginTop: '2%', padding: '2%', backgroundColor: 'lightblue'}}>Create Account</h2>
+            <hr />
+            {/* ADD IMAGE    <img src="..." class="card-img-top" alt="..." /> */}
+            <div className="card-body">
+
+        <label htmlFor="userName">Username</label>
+        <input 
+        style={{marginBottom: '7%'}}
+        id="userName" 
+        type="text" 
+        placeholder="Enter Username" 
+        values={values.userName}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        className={errors.userName && touched.userName ? "input-error form-control" : "form-control"}
+        />
+        {errors.userName && touched.userName && <p className="error">{errors.userName}</p>}
+
+        <label htmlFor="email">Email</label>
+        <input 
+        style={{marginBottom: '7%'}}
+        id="email" 
+        type="email" 
+        placeholder="Enter email" 
+        values={values.email}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        className={errors.email && touched.email ? "input-error form-control" : "form-control"}
+        />
+        {errors.email && touched.email && <p className="error">{errors.email}</p>}
+
+        <label htmlFor="password">Password</label>
+        <input 
+        style={{marginBottom: '7%'}}
+        id="password" 
+        type="password" 
+        placeholder="Enter password"
+        values={values.password}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        className={errors.password && touched.password ? "input-error form-control" : "form-control"}
+        />
+        {errors.password && touched.password && <p className="error">{errors.password}</p>}
+
+        <label htmlFor="confirmPassword">Confirm Password</label>
+        <input 
+        style={{marginBottom: '7%'}}
+        id="confirmPassword" 
+        type="password" 
+        placeholder="Confirm password"
+        values={values.confirmPassword}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        className={errors.confirmPassword && touched.confirmPassword ? "input-error form-control" : "form-control"}
+        />
+        {errors.confirmPassword && touched.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
+
+        {/* <button disabled={isSubmitting} type="submit">Create Account</button> */}
+        <button style={{marginTop: '5%'}} disabled={isSubmitting} type="submit" className="btn btn-success">Create Account</button>
+        </div>
+        </div>
+        </form>
+        
+    </div>
+  );
+};
+export default BasicForm;

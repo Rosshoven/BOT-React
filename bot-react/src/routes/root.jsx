@@ -10,9 +10,9 @@ export default function Root() {
         <div>
          
          {/* Took out 'bg-body-secondary' from <nav className> Added 'navbar-dark bg-dark' */}
-<nav style={{backgroundColor: 'darkgreen'}} className="nav nav-pills nav-justified navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+<nav style={{position: 'fixed', width: '100%', backgroundColor: 'darkgreen'}} className="nav nav-pills nav-justified navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div className="container-fluid">
-    <a className="navbar-brand" href="/home">BOT Image</a>
+    <Link className="navbar-brand" to={'home'}><img src="..."/></Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
