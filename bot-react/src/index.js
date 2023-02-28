@@ -7,6 +7,8 @@ import {
 import ErrorPage from './error-page';
 import About from './routes/about';
 import Contact from './routes/contact';
+import CreateAccount from './routes/create-account.jsx';
+import Home from './routes/home';
 import Pics from './routes/pics';
 import Root from './routes/root';
 
@@ -19,6 +21,10 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
+        path: 'home',
+        element: <Home />
+      },
+      {
         path: 'about',
         element: <About />
       },
@@ -29,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: 'pics',
         element: <Pics />
+      },
+      {
+        path: 'create-account',
+        element: <CreateAccount />
       }
     ]
   },

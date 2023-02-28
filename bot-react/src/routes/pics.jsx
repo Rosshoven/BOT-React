@@ -1,7 +1,7 @@
 export default function Pics() {
     return (
         <>
-            <p>PICS PICS</p>
+            <p>PICS PICS PICS PICS</p>
         </>
         
     );
