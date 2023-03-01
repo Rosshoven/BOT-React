@@ -32,7 +32,7 @@ function BasicForm() {
 
 
     // destrucuring formik
-    const { values, errors, touched, isSubmitting, handleChange, handleBlur, handleSubmit } = useFormik({
+    const { values, errors, touched, handleChange, handleBlur, handleSubmit } = useFormik({
         initialValues: {
             userName: '',
             email: '',
