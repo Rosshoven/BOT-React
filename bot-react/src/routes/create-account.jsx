@@ -5,7 +5,7 @@ import { basicSchema } from "../schemas/schema";
 
 function BasicForm() {
     const [createAccountTrue, setCreateAccountTrue] = useState(false);
-
+    
 
     // onSubmit function for submitting 
     async function onSubmit(values, actions) {
@@ -106,7 +106,7 @@ function BasicForm() {
                         {errors.confirmPassword && touched.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
 
                         {/* <button disabled={isSubmitting} type="submit">Create Account</button> */}
-                        <button style={{ marginTop: '5%' }} disabled={isSubmitting} type="submit" className="btn btn-success">{createAccountTrue ? 'Create Another Account' : 'Create Account'}</button>
+                        <button style={{ marginTop: '5%' }} disabled={ values.password.length === 0 && values.confirmPassword.length === 0 ? true : false } type="submit" className="btn btn-success">{createAccountTrue ? 'Create Another Account' : 'Create Account'}</button>
                     </div>
                 </div>
             </form>
