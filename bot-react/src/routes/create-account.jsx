@@ -11,7 +11,7 @@ async function onSubmit(values, actions) {
     // Resetting form not working...
     alert(`Success. Your account has been created!`);
     actions.resetForm({
-        values: {
+        value: {
             // the type of `values` inferred to be Blog
             userName: '',
             email: '',
@@ -54,7 +54,7 @@ console.log(errors);
         id="userName" 
         type="text" 
         placeholder="Enter Username" 
-        values={values.userName}
+        value={values.userName}
         onChange={handleChange}
         onBlur={handleBlur}
         className={errors.userName && touched.userName ? "input-error form-control" : "form-control"}
@@ -67,7 +67,7 @@ console.log(errors);
         id="email" 
         type="email" 
         placeholder="Enter email" 
-        values={values.email}
+        value={values.email}
         onChange={handleChange}
         onBlur={handleBlur}
         className={errors.email && touched.email ? "input-error form-control" : "form-control"}
@@ -80,7 +80,7 @@ console.log(errors);
         id="password" 
         type="password" 
         placeholder="Enter password"
-        values={values.password}
+        value={values.password}
         onChange={handleChange}
         onBlur={handleBlur}
         className={errors.password && touched.password ? "input-error form-control" : "form-control"}
@@ -93,7 +93,7 @@ console.log(errors);
         id="confirmPassword" 
         type="password" 
         placeholder="Confirm password"
-        values={values.confirmPassword}
+        value={values.confirmPassword}
         onChange={handleChange}
         onBlur={handleBlur}
         className={errors.confirmPassword && touched.confirmPassword ? "input-error form-control" : "form-control"}
