@@ -5,6 +5,8 @@ import { basicSchema } from "../schemas/schema";
 
 function BasicForm() {
     const [createAccountTrue, setCreateAccountTrue] = useState(false);
+    const [show, setShow] = useState(true);
+
     
 
     // onSubmit function for submitting 
@@ -15,8 +17,7 @@ function BasicForm() {
         console.log(actions);
         await new Promise((resolve) => setTimeout(resolve, 1000));
         
-        // Resetting form not working...
-        alert(`Success. Your account has been created!`);
+        // alert(`Success. Your account has been created!`);
         actions.resetForm({
             value: {
                 // the type of `values` inferred to be Blog
@@ -27,6 +28,7 @@ function BasicForm() {
         },
         });
         setCreateAccountTrue(true);
+        setShow(false);
     }
     // 
 
@@ -48,10 +50,11 @@ function BasicForm() {
 
 
     return (
-        <div style={{ borderSizing: 'border-box', backgroundColor: 'lightblue' }}>
+        show ? 
+        <div className='card form-control relative' style={{ borderSizing: 'border-box', backgroundColor: 'lightblue', position: 'static' }}>
             <form onSubmit={handleSubmit} autoComplete="off">
 
-                <div className="card" style={{ width: '18rem', marginRight: 'auto', marginLeft: 'auto', marginTop: '10%', backgroundColor: 'gray' }}>
+                <div className="card-body" style={{ borderRadius: '3%', width: '18rem', marginRight: 'auto', marginLeft: 'auto', marginTop: '10%', backgroundColor: 'gray' }}>
                     <h2 style={{ marginRight: 'auto', marginLeft: 'auto', marginTop: '2%', padding: '2%', backgroundColor: 'lightblue' }}>Create Account</h2>
                     <hr />
                     {/* ADD IMAGE    <img src="..." class="card-img-top" alt="..." /> */}
@@ -106,12 +109,29 @@ function BasicForm() {
                         {errors.confirmPassword && touched.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
 
                         {/* <button disabled={isSubmitting} type="submit">Create Account</button> */}
-                        <button style={{ marginTop: '5%' }} disabled={ values.password.length === 0 && values.confirmPassword.length === 0 ? true : false } type="submit" className="btn btn-success">{createAccountTrue ? 'Create Another Account' : 'Create Account'}</button>
+                        <button style={{ marginTop: '5%' }} disabled={ values.password.length === 0 && values.confirmPassword.length === 0 ? true : false } type="submit" className="btn btn-success">{createAccountTrue ? 'Create Another Account': 'Create Account'}</button>
                     </div>
                 </div>
-            </form>
+            </form> 
+        </div> : (
+                <>
+                <div style={{marginTop: '10%'}}>
+                <div class="card w-50">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <button type="submit" className="btn btn-dark" onClick={() => setShow(true)}>Add another account</button>
+                    </div>
+                    </div>
+              
+              </div>
+              </>
 
-        </div>
+            )
+
+
+        
+    
     );
 }
 export default BasicForm;
