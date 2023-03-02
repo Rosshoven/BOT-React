@@ -115,12 +115,12 @@ function BasicForm() {
             </form> 
         </div> : (
                 <>
-                <div style={{marginTop: '10%'}}>
-                <div class="card w-50">
+                <div>
+                <div class="card w-50" style={{marginTop: '20%', marginRight: 'auto', marginLeft: 'auto', backgroundColor: 'pink'}}>
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <button type="submit" className="btn btn-dark" onClick={() => setShow(true)}>Add another account</button>
+                        <h5 class="card-title">Success! Your account has been created.</h5>
+                        <p class="card-text">What's better than a bank account with us? How about another bank account with us?! Give us all your money!</p>
+                        <button type="submit" className="btn btn-success" onClick={() => setShow(true)}>Add another account</button>
                     </div>
                     </div>
               
