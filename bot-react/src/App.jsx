@@ -1,10 +1,23 @@
-function App() {
-  return (
+// import IndexRouter from "./index";
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
+// import {
+//   RouterProvider,
+// } from "react-router-dom";
 
-    <div>
-      <h1> Hello World!</h1>
-    </div>
-  );
-}
 
-export default App;
+// function App() {
+//   return (
+
+//     <div>
+//       {IndexRouter}
+//     </div>
+//   );
+// }
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
+//   <React.StrictMode>
+//     <RouterProvider router={IndexRouter} />
+//   </React.StrictMode>
+// );

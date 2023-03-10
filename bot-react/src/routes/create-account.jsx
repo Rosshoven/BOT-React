@@ -1,21 +1,26 @@
 import { useFormik } from "formik";
 import { useState } from "react";
 import { basicSchema } from "../schemas/schema";
+// import { useAccountContext } from "./account-context";
+
 
 
 function BasicForm() {
     const [createAccountTrue, setCreateAccountTrue] = useState(false);
     const [show, setShow] = useState(true);
+    // const user = useContext(UserContext);
+    // const {setAccountData} = useAccountContext();
 
     
 
     // onSubmit function for submitting 
     async function onSubmit(values, actions) {
-
+        
         // Instead of console.log put in context push for data. ctx.users.push({name,email,password,balance:100});
         console.log(values);
         console.log(actions);
         await new Promise((resolve) => setTimeout(resolve, 1000));
+
         
         // alert(`Success. Your account has been created!`);
         actions.resetForm({
@@ -40,6 +45,7 @@ function BasicForm() {
             password: '',
             confirmPassword: ''
         },
+
         // with below the form will use the schema to validate the form
         validationSchema: basicSchema,
         onSubmit,
