@@ -9,7 +9,7 @@ export default function Home() {
 <h2>20 Years in the making.</h2>
             <p>H.O.M.E.</p>
             <h1>{value}</h1>
-            <button onClick={() => setValue('hey chump')}>Change Value</button>
+            <button onClick={() => setValue('hey')}>Change Value</button>
         </>
         
     );

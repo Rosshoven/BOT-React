@@ -2,13 +2,20 @@ import { Link, Outlet, NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { AccountContext } from "./account-context";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
+import { UserContext } from "../utils/UserContext";
+// import { Outlet } from "react-router-dom";
+// import {BankProvider} from '../utils/BankContext';
 
 export default function Root() {
   const [value, setValue] = useState("hello from context");
+  const [user, setUser] = useState(null);
+
+  // const providerUser = useMemo(() => ({ user, setUser}), [user, setUser])
 
     return (
       <>
+      <UserContext.Provider value={{users:[{name: 'abel', email: 'abel@mit.edu', password: 'shmuck'}]}}>
       <AccountContext.Provider value={{value, setValue}}>
         <div>
         
@@ -98,6 +105,7 @@ export default function Root() {
         </div>
        
         </AccountContext.Provider>
+        </UserContext.Provider >
       </>
 
     );

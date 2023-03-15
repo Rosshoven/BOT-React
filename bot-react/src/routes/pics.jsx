@@ -16,7 +16,7 @@ export default function Pics() {
 
 // export default function AllData(){
 //     // const user = useContext(UserContext);
-//     return (
+//     return (r
 //       <>
 //       <h5>All Data in Store</h5>
 //       {JSON.stringify()}<br/>

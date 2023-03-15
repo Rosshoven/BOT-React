@@ -1,14 +1,18 @@
 import { useFormik } from "formik";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { basicSchema } from "../schemas/schema";
 // import { useAccountContext } from "./account-context";
+import { UserContext } from "../utils/UserContext";
 
 
 
 function BasicForm() {
+    // const { bank, setLoggedInUser } = useBankContext;
+
     const [createAccountTrue, setCreateAccountTrue] = useState(false);
     const [show, setShow] = useState(true);
-    // const user = useContext(UserContext);
+    
+    const user = useContext(UserContext);
     // const {setAccountData} = useAccountContext();
 
     
@@ -31,7 +35,9 @@ function BasicForm() {
                 password: '',
                 confirmPassword: ''
         },
+        
         });
+        // user.users.push({userName, email, password});
         setCreateAccountTrue(true);
         setShow(false);
     }
