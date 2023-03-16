@@ -1,8 +1,8 @@
 import { useFormik } from "formik";
-import { useState, useContext } from "react";
+import { useState, } from "react";
 import { basicSchema } from "../schemas/schema";
 // import { useAccountContext } from "./account-context";
-import { UserContext } from "../utils/UserContext";
+// import { UserContext } from "../utils/UserContext";
 
 
 
@@ -12,7 +12,7 @@ function BasicForm() {
     const [createAccountTrue, setCreateAccountTrue] = useState(false);
     const [show, setShow] = useState(true);
     
-    const user = useContext(UserContext);
+    // const user = useContext(UserContext);
     // const {setAccountData} = useAccountContext();
 
     

@@ -4,7 +4,7 @@ import { UserContext } from '../utils/UserContext';
 
 
 export default function About() {
-    const { user, setUser } = useContext(UserContext);
+    const { user } = useContext(UserContext);
     // const msg = useContext(UserContext);
 
     return (

@@ -4,7 +4,7 @@ import {
   createBrowserRouter,
   RouterProvider,
   BrowserRouter as 
-  Router, Route, Link, createRoutesFromElements
+ Route, createRoutesFromElements
 } from "react-router-dom";
 import ErrorPage from './error-page';
 import About from './routes/about';
@@ -13,8 +13,8 @@ import CreateAccount from './routes/create-account.jsx';
 import Home from './routes/home';
 import Pics from './routes/pics';
 import Root from './routes/root_navbar';
-import { createContext, useContext } from 'react';
-import { AccountContext } from './routes/account-context';
+// import { createContext, useContext } from 'react';
+// import { AccountContext } from './routes/account-context';
 // const UserContext  = createContext(null);
 
 
@@ -25,7 +25,8 @@ const router = createBrowserRouter (
   <>
      
         <Route path="/" exact element={<Root />} errorElement={<ErrorPage />} >
-        
+           
+          <Route index element={<Home />} />
           <Route path="home"  element={<Home />} />
           <Route path="create-account"  element={<CreateAccount />} />
           <Route path="pics"  element={<Pics />} />

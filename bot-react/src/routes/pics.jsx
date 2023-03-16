@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { AccountContext } from "./account-context";
 
 export default function Pics() {
@@ -7,7 +7,6 @@ export default function Pics() {
         <>
             <p style={{margin: '15%'}}>PICS PICS PICS PICS</p>
             <h1>{value}</h1>
-            <button onClick={() => setValue('hey chump')}>Change Value</button>
         </>
         
     );
@@ -16,7 +15,7 @@ export default function Pics() {
 
 // export default function AllData(){
 //     // const user = useContext(UserContext);
-//     return (r
+//     return (
 //       <>
 //       <h5>All Data in Store</h5>
 //       {JSON.stringify()}<br/>
